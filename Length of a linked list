@@ -1,0 +1,52 @@
+class LikedList{
+    Node head;
+    public class Node{
+        int data;
+        Node next;
+        //constructor
+        Node(int d){
+            data = d;
+            next = null;
+        }
+    }
+    
+    public void print(){
+        Node n = head;
+        while(n != null){
+            System.out.println(n.data + " ");
+            n = n.next;
+        }
+    }
+    
+    public void push(int data){
+        Node newNode = new Node(data);
+        newNode.next = head;
+        head = newNode;
+    }
+    
+    public int getCountItr(){
+        int count=0;
+        Node n = head;
+        while(n != null){
+            count++;
+            n = n.next;
+        }
+        return count;
+    }
+    
+    public int getCountRec(Node node){
+        if(node == null)
+            return 0;
+        return 1 + getCountRec(node.next);
+    }
+    
+    public int getCountRec(){
+        return getRecCount(head);
+    }
+    
+    public static void main(string [] args){
+        LinkedList llist = new LinkedList();
+        llist.push(1);
+        llist.push(3);
+        System.out.println(llist.getCountItr());
+        System.out.println(llist.getCountRec());
