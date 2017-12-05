@@ -1,0 +1,1 @@
+public void deletePosition(int position){  Node temp = head;  if(head == null){   return;  }  if(position == 0){   head = temp.next;   return;  }  for(int i=0; temp!=null && i<position-1; i++){   temp = temp.next;   if(temp.next == null || temp ==null){    return;   }   Node newN = temp.next.next;   temp.next = newN;  } }
